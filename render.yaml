@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mobile-api
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: UseSqlite
+        value: "true"
+      - key: Jwt__SecretKey
+        value: SUPER_SECURE_JWT_SIGNING_KEY_SCREEN_SHARING_2026_PRODUCTION_COMPLIANT_MIN_256_BITS!
+      - key: Jwt__Issuer
+        value: ScreenSharingApi
+      - key: Jwt__Audience
+        value: ScreenSharingClients

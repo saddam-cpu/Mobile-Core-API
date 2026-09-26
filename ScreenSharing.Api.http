@@ -1,0 +1,6 @@
+@ScreenSharing.Api_HostAddress = http://localhost:5112
+
+GET {{ScreenSharing.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
