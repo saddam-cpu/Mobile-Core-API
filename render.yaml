@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: mobile-api
+    name: mobile-core-api
     runtime: docker
     plan: free
     region: oregon

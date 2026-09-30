@@ -19,7 +19,7 @@ High-performance ASP.NET Core 8 Web API providing authentication, session manage
 
 ## Deployment to Render (Free Cloud Server)
 
-To deploy and host at **`https://mobile-api.onrender.com`**:
+To deploy and host at **`https://mobile-core-api.onrender.com`**:
 
 1. **Sign In**: Go to [Render.com](https://render.com) and log in with your GitHub account (`saddam-cpu`).
 2. **Create New Web Service**:
@@ -27,7 +27,7 @@ To deploy and host at **`https://mobile-api.onrender.com`**:
    - Select **Build and deploy from a Git repository**.
    - Choose repository: `saddam-cpu/Mobile-Core-API`.
 3. **Configure Service Details**:
-   - **Name**: `mobile-api` *(This assigns the URL `https://mobile-api.onrender.com`)*
+   - **Name**: `mobile-core-api` *(This assigns the URL `https://mobile-core-api.onrender.com`)*
    - **Region**: Oregon (or nearest region)
    - **Branch**: `main`
    - **Runtime**: **Docker** *(Render detects the Dockerfile automatically)*
@@ -40,22 +40,22 @@ To deploy and host at **`https://mobile-api.onrender.com`**:
    - Render will build the Docker container and start your API.
    - Once deployment completes, your API will be live at:
      ```
-     https://mobile-api.onrender.com
+     https://mobile-core-api.onrender.com
      ```
    - Swagger UI:
      ```
-     https://mobile-api.onrender.com/swagger
+     https://mobile-core-api.onrender.com/swagger
      ```
 
 ---
 
 ## Connecting External Mobile App to Cloud API
 
-In the Android mobile app, update the Base URL in `Constants.kt` or `network_security_config.xml`:
+In the Android mobile app, update the Base URL in `app/build.gradle.kts`:
 
 ```kotlin
-const val BASE_URL = "https://mobile-api.onrender.com"
-const val SIGNALING_HUB_URL = "https://mobile-api.onrender.com/hubs/signaling"
+buildConfigField("String", "API_BASE_URL", "\"https://mobile-core-api.onrender.com/\"")
+buildConfigField("String", "SIGNALR_HUB_URL", "\"https://mobile-core-api.onrender.com/hubs/signaling\"")
 ```
 
 ---
